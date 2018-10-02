@@ -23,7 +23,7 @@ public class Consumer implements Runnable{
 		synchronized (arr) {
 		if(arr.size() > 0){
 				int number = arr.remove(arr.size()-1);
-				System.out.println("Consumer Number:"+number);
+				System.out.println(Thread.currentThread().getName()+" is Consuming Number:"+number);
 				arr.notifyAll();
 		} else {
 			try {

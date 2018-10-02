@@ -18,12 +18,12 @@ public class Producer implements Runnable{
 		}
 	}
 	public void produce(){
-		int randNum = (int) (Math.random()*100);
-		System.out.println("Generate Random Number:"+randNum);
 		synchronized (arr) {
 		if(arr.size() < size){
-				arr.add(randNum);
-				arr.notifyAll();
+			int randNum = (int) (Math.random()*100);
+			System.out.println(Thread.currentThread().getName() +" is Generating Random Number:"+randNum);
+			arr.add(randNum);
+			arr.notifyAll();
 			//Notify
 		} else {
 			try {
